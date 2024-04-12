@@ -1,4 +1,4 @@
-import 'package:MICEconnect/services/data_service.dart';
+import 'package:mice_connect/services/data_service.dart';
 //import 'package:MICEconnect/services/data_service.dart';
 import 'package:flutter/material.dart';
 //import 'create.dart';
@@ -19,7 +19,7 @@ class _InputApiState extends State<InputApi> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Test Create'),
-        backgroundColor: Color.fromARGB(255, 56, 187, 231),
+        backgroundColor: const Color.fromARGB(255, 56, 187, 231),
       ),
       body: Column(
         children: [

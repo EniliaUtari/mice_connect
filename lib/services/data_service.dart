@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:MICEconnect/dto/news.dart';
-import 'package:MICEconnect/endpoints/endpoints.dart';
+import 'package:mice_connect/dto/news.dart';
+import 'package:mice_connect/endpoints/endpoints.dart';
 
 class DataService{
   static Future<List<News>> fetchNews() async {

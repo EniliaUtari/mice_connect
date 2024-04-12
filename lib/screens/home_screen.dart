@@ -11,9 +11,9 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Bagian atas layar dengan foto pengguna dan kalimat sambutan
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
@@ -43,9 +43,9 @@ class HomeScreen extends StatelessWidget {
                 Icon(Icons.notifications),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // "On Going!"
-            Row(
+            const Row(
               children: [
                 Text(
                   'On Going!',
@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Gambar event dengan pergeseran
             SizedBox(
               height: 250,
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                       margin: const EdgeInsets.only(bottom: 5),
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Color.fromARGB(255, 211, 203, 203)),
+                        border: Border.all(color: const Color.fromARGB(255, 211, 203, 203)),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(
@@ -77,14 +77,14 @@ class HomeScreen extends StatelessWidget {
                             height: 150,
                             fit: BoxFit.cover,
                           ),
-                          SizedBox(height: 10),
-                          Text(
+                          const SizedBox(height: 10),
+                          const Text(
                             'Ubud Village Jazz Festival',
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 10),
-                          Row(
+                          const SizedBox(height: 10),
+                          const Row(
                             children: [
                               Icon(Icons.calendar_month),
                               SizedBox(width: 10),
@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                       margin: const EdgeInsets.only(bottom: 5),
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Color.fromARGB(255, 211, 203, 203)),
+                        border: Border.all(color: const Color.fromARGB(255, 211, 203, 203)),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(
@@ -117,14 +117,14 @@ class HomeScreen extends StatelessWidget {
                             height: 150,
                             fit: BoxFit.cover,
                           ),
-                          SizedBox(height: 10),
-                          Text(
+                          const SizedBox(height: 10),
+                          const Text(
                             'Bali Childcare Volunteers',
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 10),
-                          Row(
+                          const SizedBox(height: 10),
+                          const Row(
                             children: [
                               Icon(Icons.date_range),
                               SizedBox(width: 10),
@@ -142,9 +142,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // "Choose by Category"
-            Row(
+            const Row(
               children: [
                 Text(
                   'Choose by Category',
@@ -152,7 +152,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Gambar kategori pertama
             Row(
               children: [
@@ -166,15 +166,15 @@ class HomeScreen extends StatelessWidget {
                           height: 150,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                               image: AssetImage('assets/images/concert.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         // Nama kategori pertama
-                        Text(
+                        const Text(
                           'Events',
                           textAlign: TextAlign.center,
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -193,15 +193,15 @@ class HomeScreen extends StatelessWidget {
                           height: 150,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                               image: AssetImage('assets/images/jobb.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         // Nama kategori kedua
-                        Text(
+                        const Text(
                           'Job',
                           textAlign: TextAlign.center,
                           style: TextStyle(fontWeight: FontWeight.bold),

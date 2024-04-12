@@ -1,11 +1,11 @@
-import 'package:MICEconnect/screens/crud.dart';
-import 'package:MICEconnect/screens/news_feed.dart';
-import 'package:MICEconnect/screens/routes/SecondScreen/profile_screen.dart';
+import 'package:mice_connect/screens/login.dart';
+import 'package:mice_connect/screens/news_feed.dart';
+import 'package:mice_connect/screens/routes/SecondScreen/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:MICEconnect/screens/home_screen.dart';
-import 'package:MICEconnect/screens/event_screen.dart';
-import 'package:MICEconnect/screens/job_screen.dart';
+//import 'package:flutter/widgets.dart';
+import 'package:mice_connect/screens/home_screen.dart';
+import 'package:mice_connect/screens/event_screen.dart';
+import 'package:mice_connect/screens/job_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
+      home: const LoginScreen(),
     );
   }
 }
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // Bagian atas sidebar
             Container(
               color:
-                  Color.fromARGB(255, 56, 187, 231), // Warna latar belakang light brown
+                  const Color.fromARGB(255, 56, 187, 231), // Warna latar belakang light brown
               padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 10),
               child: const Row(
                 children: [
@@ -108,34 +109,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-          ListTile(
+          const ListTile(
               title: Text('Putu Enilia Utari'),
               leading: Icon(Icons.person),
             ),
-            ListTile(
+            const ListTile(
               title: Text('4C/Sistem Informasi'),
               leading: Icon(Icons.class_outlined),
             ),
-            ListTile(
+            const ListTile(
               title: Text('Universitas Pendidikan Ganesha'),
               leading: Icon(Icons.school),
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              title: Text('Enilia_4C'),
-              leading: Icon(Icons.emoji_people),
+              title: const Text('Enilia_4C'),
+              leading: const Icon(Icons.emoji_people),
               onTap: () {
                 Navigator.push(
-                  context, MaterialPageRoute(builder: (context) =>  NewsFeed()),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('Latihan CRUD'),
-              leading: Icon(Icons.emoji_people),
-              onTap: () {
-                Navigator.push(
-                  context, MaterialPageRoute(builder: (context) =>  AddTypes()),
+                  context, MaterialPageRoute(builder: (context) =>  const NewsFeed()),
                 );
               },
             ),
@@ -163,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     ],
     currentIndex: _selectedIndex,
-    selectedItemColor: Color.fromARGB(255, 56, 187, 231),
+    selectedItemColor: const Color.fromARGB(255, 56, 187, 231),
     unselectedItemColor: Colors.grey, // Atur warna untuk item yang tidak terpilih
     iconSize: 24.0, // Atur ukuran ikon jika perlu
     onTap: _onItemTapped,

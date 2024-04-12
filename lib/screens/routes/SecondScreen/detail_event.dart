@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class detail_event extends StatelessWidget {
-  const detail_event ({Key? key}) : super(key: key);
+class DetailEvent extends StatelessWidget {
+  const DetailEvent ({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +60,11 @@ class detail_event extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
-            Text(
+            const Text(
               'UBUD VILLAGE JAZZ FESTIVAL (UVJF) enters its second decade, expressing gratitude to the Ministry of Tourism and Creative Economy of The Republic of Indonesia for their support. Recognized as a prestigious national event, UVJF serves as a platform for diverse global jazz talents, endorsed by international embassies.',
             ),
             const Divider(), // Garis pemisah
-            Text(
+            const Text(
               'About Company',
               style: TextStyle(
                 fontSize: 17.0,
@@ -72,15 +72,15 @@ class detail_event extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8.0),
-            Text(
+            const Text(
               'Alamat Perusahaan: Jalan A.A Gede Rai,Jl. Raya Mawang Kelod, Lodtunduh, Kecamatan Ubud, Gianyar, Bali',
             ),
             const SizedBox(height: 8.0),
-            Text(
+            const Text(
               'Contact: ubudvillagejazzfestival@gmail.com',
             ),
             const SizedBox(height: 8.0),
-            Text(
+            const Text(
               'Website: www.ubudvillagejazzfest.com',
             ),
           ],

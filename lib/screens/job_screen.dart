@@ -1,4 +1,4 @@
-import 'package:MICEconnect/screens/detail_job.dart';
+import 'package:mice_connect/screens/detail_job.dart';
 import 'package:flutter/material.dart';
 //import 'package:MICEconnect/screens/routes/JobScreen/job_screen.dart';
 
@@ -15,52 +15,52 @@ class _EventScreenState extends State<JobScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Create Your More Experience'),
+          title: const Text('Create Your More Experience'),
         ),
         body: SingleChildScrollView(  // membuat tampilan dapat di scroll
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: <Widget>[
                 // memanggil method buildEventItem dengan parameter-widget yang diperlukan
                 buildEventItem(
-                  title: Text('Bali Childcare Volunteers'),
-                  description: Text('Volunteer by Plan My Gap Year Organixation'),
-                  backgroundImage: AssetImage('assets/images/PMGY.jpg'),
-                  date: Text('4-8 Weeks'),
-                  location: Text('Tabanan, Bali, Indonesia'),
+                  title: const Text('Bali Childcare Volunteers'),
+                  description: const Text('Volunteer by Plan My Gap Year Organixation'),
+                  backgroundImage: const AssetImage('assets/images/PMGY.jpg'),
+                  date: const Text('4-8 Weeks'),
+                  location: const Text('Tabanan, Bali, Indonesia'),
                   onTap: () => Navigator.push(  // Aksi yang terjadi ketika icon di klik
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const detail_job(),  // navigasi ke halaman kedua
+                      builder: (context) => const DetailJob(),  // navigasi ke halaman kedua
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 buildEventItem(
-                  title: Text('Nusa Dua Light Festival'),
-                  description: Text('Daily Work'),
-                  backgroundImage: AssetImage('assets/images/jobnusdu.jpeg'),
-                  date: Text('22 April-23 Juli 2024'),
-                  location: Text('Jl. By Pass Ngurah Rai Jimbaran, Bali'),
+                  title: const Text('Nusa Dua Light Festival'),
+                  description: const Text('Daily Work'),
+                  backgroundImage: const AssetImage('assets/images/jobnusdu.jpeg'),
+                  date: const Text('22 April-23 Juli 2024'),
+                  location: const Text('Jl. By Pass Ngurah Rai Jimbaran, Bali'),
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const detail_job(),
+                      builder: (context) => const DetailJob(),
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 buildEventItem(
-                  title: Text('Environtmental Education and Cleand Up'),
-                  description: Text('Volunteer by Involvment Volunteers IVI'),
-                  backgroundImage: AssetImage('assets/images/ubud.jpg'),
-                  date: Text('4-20 Weeks'),
-                  location: Text('Ubud, Bali, Indonesia'),
+                  title: const Text('Environtmental Education and Cleand Up'),
+                  description: const Text('Volunteer by Involvment Volunteers IVI'),
+                  backgroundImage: const AssetImage('assets/images/ubud.jpg'),
+                  date: const Text('4-20 Weeks'),
+                  location: const Text('Ubud, Bali, Indonesia'),
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const detail_job(),
+                      builder: (context) => const DetailJob(),
                     ),
                   ),
                 ),
@@ -91,7 +91,7 @@ class _EventScreenState extends State<JobScreen> {
               aspectRatio: 16 / 9,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(4)),  // mengatur sudut container
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),  // mengatur sudut container
                   // untuk menampilkan gambar
                   image: DecorationImage(
                     image: backgroundImage,
@@ -101,26 +101,26 @@ class _EventScreenState extends State<JobScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   title,
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   description,
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Row(
                     children: <Widget>[
-                      Icon(Icons.date_range, size: 16),
-                      SizedBox(width: 4.0),
+                      const Icon(Icons.date_range, size: 16),
+                      const SizedBox(width: 4.0),
                       date,
                     ],
                   ),
-                  SizedBox(height: 4.0),
+                  const SizedBox(height: 4.0),
                   Row(
                     children: <Widget>[
-                      Icon(Icons.location_on, size: 16),
-                      SizedBox(width: 4.0),
+                      const Icon(Icons.location_on, size: 16),
+                      const SizedBox(width: 4.0),
                       location,
                     ],
                   ),

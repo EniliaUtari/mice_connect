@@ -1,7 +1,7 @@
-import 'package:MICEconnect/components/My_textfield.dart';
+import 'package:mice_connect/components/My_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:MICEconnect/Screens/home_screen.dart';
-import 'package:MICEconnect/components/my_button.dart';
+import 'package:mice_connect/Screens/home_screen.dart';
+import 'package:mice_connect/components/my_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -29,29 +29,29 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
               Image.asset(
                 "assets/images/logo1.jpg",
                 width: 200,
               ),
-              SizedBox(height: 100),
-              MyTextField(hintText: "Email"),
-              SizedBox(height: 20),
+              const SizedBox(height: 100),
+              const MyTextField(hintText: "Email"),
+              const SizedBox(height: 20),
               MyTextField(
                 hintText: "Password",
                 onPressed: showPassword,
                 obsecureText: !showPass,
                 icon: showPass ? Icons.visibility_off : Icons.visibility,
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 25),
+                margin: const EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -64,13 +64,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             check();
                           },
                         ),
-                        Text(
+                        const Text(
                           "Remember Me",
                           style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                         )
                       ],
                     ),
-                    Text(
+                    const Text(
                       "Forgot Password?",
                       style: TextStyle(
                         color: Color.fromARGB(255, 0, 123, 255),
@@ -80,22 +80,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
               MyButton(
-                customColor: Color.fromARGB(255, 20, 135, 244),
+                customColor: const Color.fromARGB(255, 20, 135, 244),
                 text: "Sign In",
                 onTap: () {
                   // Navigasi ke HomeScreen
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
+                      builder: (context) => const HomeScreen(),
                     ),
                   );
                 },
               ),
-              SizedBox(height: 20),
-              Row(
+              const SizedBox(height: 20),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
