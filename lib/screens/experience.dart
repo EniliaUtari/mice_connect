@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mice_connect/helpers/dbhelper.dart';
-//import 'package:my_app/screens/input.dart';
 
 class ExperienceScreen extends StatefulWidget {
+  const ExperienceScreen ({super.key});
   @override
   State<ExperienceScreen> createState() => _ExperienceScreenState();
 }
@@ -46,7 +46,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
     await sqlHelp.deleteData(id);
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
       backgroundColor: Colors.red,
-      content: Text("Data sudah terhapus"),
+      content: Text("Data Has Been Deleted!"),
     ));
     _refreshData();
   }
@@ -79,21 +79,25 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
           children: [
             TextField(
               controller: _titleController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Title",
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15), // Membuat sedikit melengkung
+                ),
+                hintText: "Name of Activity",
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             TextField(
               controller: _descController,
               maxLines: 8,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Description",
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                hintText: "Description of Experience",
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Center(
               child: ElevatedButton(
                 onPressed: () async {
@@ -111,12 +115,13 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                   print("Data Added");
                 },
                 child: Padding(
-                  padding: const EdgeInsets.all(18),
+                  padding: EdgeInsets.all(18),
                   child: Text(
-                    id == null ? "Add Data" : "Update",
-                    style: const TextStyle(
+                    id == null ? "Add Experience" : "Update",
+                    style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
+                      color: const Color.fromARGB(255, 56, 187, 231),
                     ),
                   ),
                 ),
@@ -131,25 +136,25 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("YOUR EXPERIENCE"),
-        backgroundColor: Colors.red,
+        title: Text("YOUR EXPERIENCE"),
+        backgroundColor: const Color.fromARGB(255, 56, 187, 231),
       ),
       body: _isLoading
-          ? const Center(
+          ? Center(
               child: CircularProgressIndicator(),
             )
           : ListView.builder(
               itemCount: _allData.length,
               itemBuilder: (context, index) => Card(
-                margin: const EdgeInsets.all(15),
+                margin: EdgeInsets.all(15),
                 child: ListTile(
                   title: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    padding: EdgeInsets.symmetric(vertical: 5),
                     child: Text(
                       _allData[index]['title'],
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 15,
                       ),
                     ),
@@ -162,16 +167,16 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                         onPressed: () {
                           showBottomSheet(_allData[index]['id']);
                         },
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.edit,
-                          color: Colors.blue,
+                          color: const Color.fromARGB(255, 56, 187, 231),
                         ),
                       ),
                       IconButton(
                         onPressed: () {
                           _deleteData(_allData[index]['id']);
                         },
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.delete,
                           color: Colors.red,
                         ),
@@ -182,9 +187,13 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
               ),
             ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 56, 187, 231),
         onPressed: () => showBottomSheet(null),
-        child: const Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
       ),
+    ),
     );
   }
 }

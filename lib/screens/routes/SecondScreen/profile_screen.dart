@@ -1,57 +1,54 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_ujicoba/components/size_config.dart';
+// import 'package:flutter_ujicoba/screens/Home.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            CircleAvatar(
-              radius: 90,
-              backgroundImage: AssetImage('assets/images/profile.jpg'),
-            ),
-            SizedBox(height: 20),
-            Text(
-              '@eniliautari',
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Project Manager',
-              style: TextStyle(
-                fontSize: 20,
-                color: Color.fromARGB(255, 194, 191, 191),
-              ),
-            ),
-            Divider(height: 40),
-            SizedBox(height: 10),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Enilia Utari',
-              style: TextStyle(fontSize: 16)),
-            ),
-            //const Divider(),
-            ListTile(
-              leading: Icon(Icons.school),
-              title: Text('S1 Sistem Informasi',
-              style: TextStyle(fontSize: 16)),
-            ),
-            ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text('Bali Indonesia',
-              style: TextStyle(fontSize: 16)),
-            ),
-            Divider(height: 80),
-            SizedBox(height: 20),
-          ],
+    return Scaffold(
+      body: Column(
+        children: [
+          const SizedBox(height: 20),
+          CircleAvatar(
+            radius: 70,
+            backgroundImage: AssetImage('assets/images/profile.jpg'),
+          ),
+          const SizedBox(height: 20),
+          itemProfile('Nama', 'Putu Eniia Utari', CupertinoIcons.person_fill),
+          const SizedBox(height: 20),
+          itemProfile('Pendidikan Terakhir', 'S1 Sistem Informasi', CupertinoIcons.book_fill),
+          const SizedBox(height: 20),
+          itemProfile('Alamat', 'Klungkung, Bali', CupertinoIcons.map_fill),
+           const SizedBox(height: 20),
+          itemProfile('Experience', 'Your Experience', CupertinoIcons.bag_fill),
+        ],
+      ),
+    );
+  }
+
+  itemProfile(String title, String subtitle, IconData iconData) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, 5),
+                color: Colors.black.withOpacity(.1),
+                spreadRadius: 2,
+                blurRadius: 5)
+          ]),
+      child: ListTile(
+        title: Text(title),
+        subtitle: Text(subtitle),
+        leading: Icon(iconData),
+        trailing: Icon(
+          Icons.edit,
+          color: Colors.grey,
         ),
+        tileColor: Colors.white,
       ),
     );
   }

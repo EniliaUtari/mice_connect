@@ -51,4 +51,44 @@ class DataService{
       },
     );
 }
+
+static Future<void> editNews(String id, String title, String body) async {
+  final response = await http.put(
+    Uri.parse('${Endpoints.news}/$id'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'title': title,
+      'body': body,
+    }),
+  );
+
+  if (response.statusCode == 200) {
+    // Check for edit success (200 OK)
+    print('News with id: $id edited successfully');
+  } else {
+    // Handle error
+    throw Exception('Failed to edit news with id: $id');
+  }
+}
+
+
+  static Future<void> deleteNews(String id) async {
+  final response = await http.delete(
+    Uri.parse('${Endpoints.news}/$id'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  );
+
+  if (response.statusCode == 200) {
+    // Check for deletion success (200 OK)
+    print('News with id: $id deleted successfully');
+  } else {
+    // Handle error
+    throw Exception('Failed to delete news with id: $id');
+  }
+}
+
 }
