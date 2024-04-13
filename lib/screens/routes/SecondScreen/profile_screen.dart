@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_ujicoba/components/size_config.dart';
-// import 'package:flutter_ujicoba/screens/Home.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
