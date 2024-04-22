@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:mice_connect/dto/datas.dart';
 import 'dart:convert';
 import 'package:mice_connect/dto/news.dart';
 import 'package:mice_connect/endpoints/endpoints.dart';
@@ -91,4 +92,16 @@ static Future<void> editNews(String id, String title, String body) async {
   }
 }
 
+static Future<List<Datas>> fetchDatas() async {
+    final response = await http.get(Uri.parse(Endpoints.datas));
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as Map<String,dynamic>;
+      return (data['datas']as List<dynamic>)
+      .map((item) => Datas.fromJson(item as Map<String,dynamic>))
+      .toList();
+    } else {
+      // Handle error
+      throw Exception('Failed to load Datas');
+    }
+  }
 }

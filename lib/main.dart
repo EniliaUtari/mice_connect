@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:mice_connect/screens/experience.dart';
 import 'package:mice_connect/screens/experience.dart';
 import 'package:mice_connect/screens/news_feed.dart';
+import 'package:mice_connect/screens/routes/SecondScreen/DatasScreen/datas_screen.dart';
 import 'package:mice_connect/screens/routes/SecondScreen/profile_screen.dart';
 import 'package:mice_connect/screens/home_screen.dart';
 import 'package:mice_connect/screens/event_screen.dart';
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Home'),
+      routes: {
+        '/datas-screen': (context) => const DatasScreen(),
+      }
     );
   }
 }
@@ -115,6 +119,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     context,
                     MaterialPageRoute(builder: (context) => const NewsFeed()),
                   );
+                },
+              ),
+              const Divider(),
+              const Divider(),
+
+              ListTile(
+                title: const Text('Latihan Datas'),
+                leading: const Icon(Icons.add_a_photo),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/datas-screen');
                 },
               ),
               const Divider(),
