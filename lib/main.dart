@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mice_connect/cubit/counter_cubit.dart';
+import 'package:mice_connect/screens/Cust/cust_screen.dart';
+import 'package:mice_connect/screens/aboutus_screen.dart';
+import 'package:mice_connect/screens/counter/CounterScreen/counter_screen.dart';
+import 'package:mice_connect/screens/counter/WelcomeScreen/welcome_screen.dart';
 //import 'package:mice_connect/screens/experience.dart';
 import 'package:mice_connect/screens/experience.dart';
 import 'package:mice_connect/screens/news_feed.dart';
@@ -18,7 +24,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiBlocProvider(providers: [BlocProvider<CounterCubit>(create: (context) => CounterCubit())], child: MaterialApp(
       title: 'MICEconnect',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -27,8 +33,12 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(title: 'Home'),
       routes: {
         '/datas-screen': (context) => const DatasScreen(),
+        '/aboutus-screen': (context) => const AboutUsScreen(),
+        '/customer-service-screen': (context) => const CustomerScreen(),
+        '/counter-screen': (context) => const CounterScreen(),
+        '/welcome-screen': (context) => const WelcomeScreen()
       }
-    );
+    ));
   }
 }
 
@@ -109,8 +119,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-              const Divider(),
 
+              ListTile(
+                title: const Text('About Us'),
+                leading: const Icon(Icons.people_outline),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AboutUsScreen()),
+                  );
+                },
+              ),
+              
               ListTile(
                 title: const Text('Latihan API'),
                 leading: const Icon(Icons.task),
@@ -121,8 +141,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
-              const Divider(),
-              const Divider(),
 
               ListTile(
                 title: const Text('Latihan Datas'),
@@ -132,7 +150,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, '/datas-screen');
                 },
               ),
-              const Divider(),
+
+              ListTile(
+                title: const Text('Customer Service'),
+                leading: const Icon(Icons.report),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const CustomerScreen()),
+                  );
+                },
+              ),
+              
               ListTile(
                 title: const Text('My Experience'),
                 leading: const Icon(Icons.work),
@@ -143,10 +172,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
-              const Divider(),
+
+              ListTile(
+                title: const Text('Counter Screen'),
+                leading: const Icon(Icons.countertops_outlined),
+                onTap: () {
+                  //Navigator.pop(context);
+                  Navigator.pushNamed(context, '/counter-screen');
+                },
+              ),
+
+            ListTile(
+                title: const Text('Welcome Screen'),
+                leading: const Icon(Icons.countertops_rounded),
+                onTap: () {
+                  //Navigator.pop(context);
+                  Navigator.pushNamed(context, '/welcome-screen');
+                },
+              ),
             ],
-          ),
+          ),      
         ),
+        
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[

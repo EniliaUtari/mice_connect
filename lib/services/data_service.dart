@@ -15,6 +15,15 @@ class DataService{
       throw Exception('Failed to load news');
     }
   }
+  
+  // Delete data Latihan Datas
+  static Future<void> deleteDatas(int id) async {
+    final url = Uri.parse('${Endpoints.datas}/$id');
+    final response = await http.delete(url);
+    if (response.statusCode != 200) {
+      throw Exception('Failed to delete data');
+    }
+  }
 
   // post data to endpoint news
   static Future<News> createNews(String title, String body) async {

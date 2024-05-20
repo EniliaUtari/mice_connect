@@ -73,6 +73,13 @@ class _DatasScreenState extends State<DatasScreen> {
                           color: const Color.fromARGB(255, 36, 31, 31),
                           fontWeight: FontWeight.normal,
                         )),
+                        IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () {
+                              // Panggil metode konfirmasi penghapusan saat tombol hapus ditekan
+                              _confirmAndDelete(item);
+                            },
+                          ),
                     const Divider()
                   ]),
                 );
@@ -95,5 +102,58 @@ class _DatasScreenState extends State<DatasScreen> {
         child: const Icon(Icons.add, color: Colors.white, size: 28),
       ),
     );
+  }
+
+  // Delete Latihan Datas
+  Future<void> _confirmAndDelete(Datas datas) async {
+    // Tampilkan dialog konfirmasi
+    final bool confirmed = await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Delete Data'),
+        content: Text('Are you sure you want to delete this data?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              // Tidak jadi menghapus, kembali dengan nilai false
+              Navigator.of(context).pop(false);
+            },
+            child: Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              // Konfirmasi untuk menghapus, kembali dengan nilai true
+              Navigator.of(context).pop(true);
+            },
+            child: Text('Delete'),
+          ),
+        ],
+      ),
+    );
+
+    // Jika pengguna mengonfirmasi penghapusan, lanjutkan penghapusan
+    if (confirmed) {
+      try {
+        // Memanggil metode deleteDatas untuk menghapus data dengan ID tertentu
+        await DataService.deleteDatas(datas.idDatas);
+        // Refresh data setelah berhasil menghapus
+        setState(() {
+          _datas = DataService.fetchDatas();
+        });
+        // Tampilkan snackbar atau pesan berhasil dihapus
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Data deleted successfully'),
+          ),
+        );
+      } catch (e) {
+        // Tangani kesalahan jika gagal menghapus data
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to delete data: $e'),
+          ),
+        );
+      }
+    }
   }
 }

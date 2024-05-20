@@ -109,7 +109,7 @@ class _FormScreenState extends State<FormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade900,
+      backgroundColor: const Color.fromARGB(255, 56, 187, 231),
       appBar: AppBar(
         title: null,
         backgroundColor: Colors.transparent,
@@ -131,7 +131,7 @@ class _FormScreenState extends State<FormScreen> {
                     "Create datas",
                     style: GoogleFonts.poppins(
                       fontSize: 32,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -142,8 +142,8 @@ class _FormScreenState extends State<FormScreen> {
                     "Fill the datas below, make sure you add titles and upload the images",
                     style: GoogleFonts.poppins(
                       fontSize: 12,
-                      color: Colors.white,
-                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],

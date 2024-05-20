@@ -7,4 +7,7 @@ class Endpoints {
 
 
   static const String datas = "$baseURLLive/api/datas";
+
+  static const String customerService = "$baseURLLive/api/customer-service/2215091016";
+
 }
